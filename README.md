@@ -1,11 +1,10 @@
-# Sample Hardhat Project
+# GBR Swap Token
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This smart contract serves as an exchange between USDT and GBR token in the BSC network.
 
 Try running some of the following tasks:
 
 ```shell
-npx hardhat help
 npx hardhat test
 REPORT_GAS=true npx hardhat test
 npx hardhat node
