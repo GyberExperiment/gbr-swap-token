@@ -12,7 +12,7 @@ describe("GBRTokenSwap", function () {
 
     // Deploy GBRToken mock
     const GBRTokenMock = await ethers.getContractFactory("ERC20Mock");
-    gbrToken = await GBRTokenMock.deploy("GBR Token", "GBR", owner.address, ethers.utils.parseEther("1000000"));
+    gbrToken = await GBRTokenMock.deploy("GBR Token", "GBR", owner.address, ethers.utils.parseEther("1000000000000"));
 
     // Deploy GBRTokenSwap
     GBRTokenSwap = await ethers.getContractFactory("GBRTokenSwap");
@@ -20,7 +20,7 @@ describe("GBRTokenSwap", function () {
 
     // Take GBR & USDT Tokens to GBR Token Swap Contract
     await usdtToken.connect(owner).transfer(gbrTokenSwap.address, ethers.utils.parseEther("1000"))
-    await gbrToken.connect(owner).transfer(gbrTokenSwap.address, ethers.utils.parseEther("100000"))
+    await gbrToken.connect(owner).transfer(gbrTokenSwap.address, ethers.utils.parseEther("100000000000"))
   });
 
   it("Should set the correct owner", async function () {
@@ -41,7 +41,7 @@ describe("GBRTokenSwap", function () {
     await gbrTokenSwap.connect(addr1).swap(ethers.utils.parseEther("10"));
 
     // Check GBR balance
-    expect(await gbrToken.balanceOf(addr1.address)).to.equal(ethers.utils.parseEther("1000"));
+    expect(await gbrToken.balanceOf(addr1.address)).to.equal(ethers.utils.parseEther("100000000"));
   });
 
   it("Should allow owner to withdraw tokens", async function () {
